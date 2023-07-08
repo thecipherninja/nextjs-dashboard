@@ -1,0 +1,32 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+@import url('https://fonts.googleapis.com/css2?family=Lato&family=Montserrat:wght@400;700&display=swap');
+@layer utilities {
+  .w-588 {
+    width: 588px;
+  }
+  .w-852 {
+    width: 852px;
+  }
+  .w-246 {
+    width: 246px;
+  }
+  .h-88 {
+    height: 88px;
+  }
+}
+
+* {
+  /* box-sizing: border-box;
+  padding: 0;
+  margin: 0; */
+  /* font-family: 'Lato', sans-serif; */
+  font-family: 'Montserrat', sans-serif;
+}
+
+/* html,
+body {
+  max-width: 100vw;
+  overflow-x: hidden;
+} */
