@@ -12,6 +12,10 @@
   .w-246 {
     width: 246px;
   }
+  .w-260 {
+    width: 260px;
+  }
+  
   .h-88 {
     height: 88px;
   }
@@ -22,7 +26,7 @@
   padding: 0;
   margin: 0; */
   /* font-family: 'Lato', sans-serif; */
-  font-family: 'Montserrat', sans-serif;
+  /* font-family: 'Montserrat', sans-serif; */
 }
 
 /* html,
