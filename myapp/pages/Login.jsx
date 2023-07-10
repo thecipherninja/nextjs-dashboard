@@ -1,6 +1,6 @@
 import React from 'react';
 import {useSession, signIn, signOut} from 'next-auth/react';
-import Signin from '../pages/Signin';
+import Signin from '../pages/signin';
 
 const Login = () => {
     const {data: session} = useSession();
@@ -17,9 +17,11 @@ const Login = () => {
     } else {
         return (
             <div>
-                <Signin />
+                {/* <Signin /> */}
+                <p>You arent signed in</p>
+                <button onClick={() => signIn()}>Sign In</button>
             </div>
-        )
+        );
     }
 }
 
