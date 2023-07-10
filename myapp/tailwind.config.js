@@ -15,6 +15,11 @@ module.exports = {
         secondary: "var(--secondary-text, #858585);",
         link: "var(--link, #346BD4);",
         grey: "var(--light-grey, #B0B0B0);",
+        green: "var(--green, #DDEFE0);",
+        yellow: "var(--yellow, #F4ECDD);",
+        pink: "var(--pink, #EFDADA);",
+        purple: "var(--purple, #DEE0EF);",
+
       },
       fontFamily: {
         'montserrat': ['Montserrat', 'sans-serif'],
