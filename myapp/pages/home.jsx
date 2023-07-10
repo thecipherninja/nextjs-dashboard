@@ -119,12 +119,14 @@ const Dashboard = () => {
                   </svg>
                 </div>
                 <div id="img-container" class="ml-[29px] w-[30px] h-[30px] rounded-full flex-shrink-0 bg-grey relative inline-block">
-                  <img src={session.user.image} class="w-[30px] h-[30px] rounded-full object-cover" />
-                  <div id="dropdown-content" class="hidden absolute w-full overflow-auto shadow-md">
-                    <p class="block px-4 py-2 text-black no-underline">{session.user.name}</p>
+                  <button onClick={() => signOut()} class="w-full h-full rounded-full bg-transparent">
+                    <img src={session.user.image} class="w-[30px] h-[30px] rounded-full object-cover" />
+                  </button>
+                  {/* <div id="dropdown-content" class="hidden absolute w-full overflow-auto shadow-md">
+                    <p class="block px-4 py-2 text-black no-underline">Name: {session.user.name}</p>
                     <p class="block px-4 py-2 text-black no-underline">{session.user.email}</p>
                     <button onClick={() => signOut()} class="block px-4 py-2 text-black no-underline">Sign Out</button>
-                  </div>
+                  </div> */}
                 </div>
               </div>
             </div>
