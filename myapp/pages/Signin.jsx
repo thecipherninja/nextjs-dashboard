@@ -1,6 +1,8 @@
-import React from 'react'
+import React from 'react';
+import {useSession, signIn, signOut} from 'next-auth/react';
 
-const Hero = () => {
+const Signin = () => {
+    const {data: session} = useSession();
     return (
         <div id="main" class="flex flex-row w-[1440px] h-[1024px]">
             <div id="left-card" class="flex justify-center items-center bg-black w-[588px] h-[1024px]">
@@ -23,7 +25,7 @@ const Hero = () => {
                         </p>
                     </div>
                     <div id="signin-providers" class="mt-[26px] w-[385px] h-[30px] flex flex-nowrap">
-                        <button id="google-signin" class="px-[19px] pt-[8px] w-[180px] h-[30px] flex flex-nowrap flex-shrink-0 bg-white rounded-[10px]">
+                        <button id="google-signin" class="px-[19px] pt-[8px] w-[180px] h-[30px] flex flex-nowrap flex-shrink-0 bg-white rounded-[10px]" onClick={() => signIn()}>
                             <div id="google-logo" class="w-[14px] h-[14px] flex-shrink-0 ">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 14 14" fill="none">
                                     <g clip-path="url(#clip0_0_347)">
@@ -108,4 +110,4 @@ const Hero = () => {
     )
 }
 
-export default Hero
+export default Signin
