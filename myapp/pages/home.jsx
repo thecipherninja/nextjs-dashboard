@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import {useSession, signOut, getSession} from 'next-auth/react';
 import { useRouter } from 'next/router';
 import axios from 'axios';
-import Signin from './signin';
+import Signin from '@/pages/signin';
 import Linechart from '@/components/linechart';
 import PieChart from '@/components/piechart';
 
