@@ -1,13 +1,20 @@
 import React, { useEffect, useState } from 'react';
 import {useSession, signOut, getSession} from 'next-auth/react';
+import { useRouter } from 'next/router';
 import axios from 'axios';
-import Signin from '../pages/signin';
+import Signin from './signin';
 import Linechart from '@/components/linechart';
 import PieChart from '@/components/piechart';
 
 const Dashboard = () => {
+  const router = useRouter();
   const { data: session, status } = useSession();
-  console.log(session);
+
+  useEffect(() => {
+    if (status === 'authenticated') {
+      router.push('/home');
+    }
+  }, [status]);
 
   if (status !== 'authenticated') {
     return <p>Not signed in</p>;
@@ -33,6 +40,12 @@ const MainContent = () => {
     fetchData();
   }, []);
 
+  const [isOpen, setIsOpen] = useState(false);
+
+  const toggleMenu = () => {
+    setIsOpen(!isOpen);
+  };
+  
   return (
     <div id="main" class="flex flex-row px-[40px] py-[40px] w-[1440px] h-[1024px] bg-offwhite">
       <div id="left-card" class="bg-black pl-[50px] py-[60px] w-[280px] h-[944px] rounded-[30px] flex flex-col flex-shrink-0">
@@ -145,30 +158,16 @@ const MainContent = () => {
               </svg>
             </div>
             <div id="img-container" class="ml-[29px] w-[30px] h-[30px] rounded-full flex-shrink-0 bg-grey">
-              <button id="dropdownHoverButton" data-dropdown-toggle="hover" class="w-full h-full rounded-full bg-transparent focus:outline-none  inline-flex items-center" type="button">
-                <img src={session.user.image} class="w-[30px] h-[30px] rounded-full object-cover" />
-              </button>
-              <div id="dropdown" class="z-1 bg-white hidden divide-gray-100 rounded-lg shadow w-44 dark:bg-gray-700 overflow-auto">
-                  <ul class="text-sm text-gray-700 dark:text-gray-200" aria-labelledby="dropdownHoverButton">
-                    <li>
-                      <a href="#" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">{session.user.name}</a>
-                    </li>
-                    <li>
-                      <a href="#" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">{session.user.email}</a>
-                    </li>
-                    <li>
-                      <button onClick={() => signOut()} class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Sign out</button>
-                    </li>
-                  </ul>
-              </div>
-              {/* <button onClick={() => signOut()} class="w-full h-full rounded-full bg-transparent">
-                <img src={session.user.image} class="w-[30px] h-[30px] rounded-full object-cover" />
-              </button> */}
-              {/* <div id="dropdown-content" class="hidden absolute w-full overflow-auto shadow-md">
-                <p class="block px-4 py-2 text-black no-underline">Name: {session.user.name}</p>
-                <p class="block px-4 py-2 text-black no-underline">{session.user.email}</p>
-                <button onClick={() => signOut()} class="block px-4 py-2 text-black no-underline">Sign Out</button>
-              </div> */}
+                <button class="w-full h-full rounded-full bg-transparent focus:outline-none" onClick={toggleMenu}>
+                  <img src={session.user.image} class="w-[30px] h-[30px] rounded-full object-cover" />
+                </button>
+                {isOpen && (
+                  <div class="z-50 w-48 bg-white rounded-md shadow-lg ">
+                    <div class="z-50">{session.user.name}</div>
+                    <div class="z-50">{session.user.email}</div>
+                    <div class="z-50 w-[80px] focus:outline-none text-white bg-red-600 hover:bg-red-800  font-medium rounded-lg text-sm px-2 py-2"><button onClick={() => signOut()} >Sign Out</button></div>
+                  </div>
+                )}
             </div>
           </div>
         </div>
@@ -338,9 +337,9 @@ const MainContent = () => {
         </div>
       </div>
     </div>
-
   );
 };
+
 
 export default Dashboard;
 

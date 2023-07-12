@@ -1,8 +1,21 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import {useSession, signIn, signOut} from 'next-auth/react';
+import { useRouter } from 'next/router';
 
 const Signin = () => {
-    const {data: session} = useSession();
+    const router = useRouter();
+    const { data: session, status } = useSession();
+
+    useEffect(() => {
+        if (status === 'authenticated') {
+        router.push('/home');
+        }
+    }, [status]);
+
+    // if (status !== 'authenticated') {
+    //     return <p>Not signed in</p>;
+    // }
+
     return (
         <div id="main" class="flex flex-row w-[1440px] h-[1024px]">
             <div id="left-card" class="flex justify-center items-center bg-black w-[588px] h-[1024px]">

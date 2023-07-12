@@ -3,8 +3,8 @@ import Image from 'next/image'
 import { Inter } from 'next/font/google'
 import styles from '@/styles/Home.module.css'
 import Signin from '../pages/signin'
-import Login from '../pages/login'
-import Dashboard from '../pages/home'
+import Login from './home'
+import Dashboard from './home'
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -18,9 +18,6 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
         
       </Head>
-      {/* <Home /> */}
-      {/* <Login /> */}
-      {/* <Dashboard /> */}
     </>
   )
 }
