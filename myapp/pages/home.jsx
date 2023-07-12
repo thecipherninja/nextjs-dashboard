@@ -1,7 +1,7 @@
 import React from 'react';
 import {useSession, signOut, getSession} from 'next-auth/react';
 import Signin from '../pages/signin';
-
+import Linechart from '@/components/linechart';
 
 const Dashboard = () => {
     const {data: session, status} = useSession()
@@ -119,11 +119,11 @@ const Dashboard = () => {
                   </svg>
                 </div>
                 <div id="img-container" class="ml-[29px] w-[30px] h-[30px] rounded-full flex-shrink-0 bg-grey">
-                  <button id="dropdownDefaultButton" data-dropdown-toggle="dropdown" class="w-full h-full rounded-full bg-transparent focus:outline-none  inline-flex items-center" type="button">
+                  <button id="dropdownHoverButton" data-dropdown-toggle="hover" class="w-full h-full rounded-full bg-transparent focus:outline-none  inline-flex items-center" type="button">
                     <img src={session.user.image} class="w-[30px] h-[30px] rounded-full object-cover" />
                   </button>
-                  <div id="dropdown" class="z-1 bg-white divide-gray-100 rounded-lg shadow w-44 dark:bg-gray-700 overflow-auto">
-                      <ul class="text-sm text-gray-700 dark:text-gray-200">
+                  <div id="dropdown" class="z-1 bg-white hidden divide-gray-100 rounded-lg shadow w-44 dark:bg-gray-700 overflow-auto">
+                      <ul class="text-sm text-gray-700 dark:text-gray-200" aria-labelledby="dropdownHoverButton">
                         <li>
                           <a href="#" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">{session.user.name}</a>
                         </li>
@@ -241,11 +241,37 @@ const Dashboard = () => {
                   </div>
                 </div>
             </div>
-            <div id="line-chart" class="w-full my-[20px] h-[359px] justify-center items-center flex-shrink-0 bg-orange-300">
-  
+            <div id="line-chart" class="pt-[30px] pl-[40px] pb-[25px] pr-[42px] w-full my-[20px] h-[359px] justify-center items-center flex-shrink-0 rounded-[20px] bg-white">
+              <div id="chart-header" class="w-[93px] h-[22px] ">
+                <p class="font-montserrat text-lg font-bold not-italic">
+                  Activities
+                </p>
+              </div>
+              <div id="chart" class="h-[282px]">
+                  <Linechart />
+              </div>
             </div>
-            <div id="pie-chart-row" class="w-full my-[20px] h-[256px] bg-orange-400">
-  
+            <div id="pie-chart-row" class="w-full my-[20px] h-[256px] flex flex-wrap justify-between bg-orange-400">
+              <div class="pt-[31px] pl-[40px] pr-[43px] pb-[34px] h-full w-[480px] rounded-[20px] bg-white">
+                <div class="w-full h-[42px] bg-sky-200">
+                  <p>
+                    Top products
+                  </p>
+                </div>
+                <div id="pie-chart" class="w-full h-[133px] bg-sky-400">
+
+                </div>
+              </div>
+              <div class="pt-[30px] pl-[40px] pr-[30px] pb-[34px] h-full w-[480px] rounded-[20px] bg-white">
+                <div class="w-full h-[47px] bg-sky-200">
+                  <p>
+                    Today's schedule
+                  </p>
+                </div>
+                <div id="calendar" class="w-full h-[145px] bg-sky-400">
+
+                </div>
+              </div>
             </div>
           </div>
         </div>
