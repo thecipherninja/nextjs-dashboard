@@ -2,8 +2,9 @@ import React, { useEffect, useState } from 'react';
 import {useSession, signIn, signOut} from 'next-auth/react';
 import { useRouter } from 'next/router';
 
-const Signin = () => {
+const signin = () => {
     const router = useRouter();
+
     const { data: session, status } = useSession();
 
     useEffect(() => {
@@ -49,7 +50,7 @@ const Signin = () => {
                                     </g>
                                     <defs>
                                         <clipPath id="clip0_0_347">
-                                        <rect width="14" height="14" fill="white"/>
+                                            <rect width="14" height="14" fill="white"/>
                                         </clipPath>
                                     </defs>
                                 </svg>
@@ -120,7 +121,7 @@ const Signin = () => {
             </div>
         </div>
 
-    )
+    );
 }
 
-export default Signin
+export default signin;
