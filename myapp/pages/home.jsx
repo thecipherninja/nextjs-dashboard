@@ -2,6 +2,7 @@ import React from 'react';
 import {useSession, signOut, getSession} from 'next-auth/react';
 import Signin from '../pages/signin';
 import Linechart from '@/components/linechart';
+import PieChart from '@/components/piechart';
 
 const Dashboard = () => {
     const {data: session, status} = useSession()
@@ -98,7 +99,7 @@ const Dashboard = () => {
             </div>
           </div>
   
-          <div id="right-card" class="pt-[20px] pb-[40px] pl-[60px] pr-[20px] w-[1080px] h-[944px] flex flex-col bg-violet-500">
+          <div id="right-card" class="pt-[20px] pb-[40px] pl-[60px] pr-[20px] w-[1080px] h-[944px] flex flex-col">
             <div id="header" class="w-full my-[20px] h-[30px] container flex justify-between">
               <div id="left-side" class="w-[138px] h-[29px] font-montserrat text-2xl font-bold not-italic text-black sticky left-0">
                 <p>
@@ -251,20 +252,20 @@ const Dashboard = () => {
                   <Linechart />
               </div>
             </div>
-            <div id="pie-chart-row" class="w-full my-[20px] h-[256px] flex flex-wrap justify-between bg-orange-400">
+            <div id="pie-chart-row" class="w-full my-[20px] h-[256px] flex flex-wrap justify-between">
               <div class="pt-[31px] pl-[40px] pr-[43px] pb-[34px] h-full w-[480px] rounded-[20px] bg-white">
-                <div class="w-full h-[42px] bg-sky-200">
-                  <p>
+                <div class="w-full h-[42px]">
+                  <p class="font-montserrat text-lg font-bold not-italic text-black">
                     Top products
                   </p>
                 </div>
-                <div id="pie-chart" class="w-full h-[133px] bg-sky-400">
-
+                <div id="pie-chart" class="w-full h-[150px] bg-sky-400">
+                  <PieChart />
                 </div>
               </div>
               <div class="pt-[30px] pl-[40px] pr-[30px] pb-[34px] h-full w-[480px] rounded-[20px] bg-white">
-                <div class="w-full h-[47px] bg-sky-200">
-                  <p>
+                <div class="w-full h-[47px]">
+                  <p class="font-montserrat text-lg font-bold not-italic text-black">
                     Today's schedule
                   </p>
                 </div>
