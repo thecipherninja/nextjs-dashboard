@@ -259,7 +259,7 @@ const Dashboard = () => {
                     Top products
                   </p>
                 </div>
-                <div id="pie-chart" class="w-full h-[150px] bg-sky-400">
+                <div id="pie-chart" class="w-full h-[150px]">
                   <PieChart />
                 </div>
               </div>
@@ -269,8 +269,45 @@ const Dashboard = () => {
                     Today's schedule
                   </p>
                 </div>
-                <div id="calendar" class="w-full h-[145px] bg-sky-400">
-
+                <div id="calendar" class="w-full h-[145px] grid grid-rows-2 gap-y-[13px]">
+                  <div class="border-l-[5px] pl-[15px] py-[5.5px] w-full h-[66px] border-lightgreen">
+                    <div class="h-[55px] grid grid-rows-3 gap-y-[5px]">
+                      <div class="h-[17px]">
+                        <p class="font-lato text-sm font-bold text-darkgrey">
+                        Meeting with suppliers from Kuta Bali
+                        </p>
+                      </div>
+                      <div class="h-[14px]">
+                        <p class="font-lato text-xs font-normal text-grey2">
+                        14.00-15.00
+                        </p>
+                      </div>
+                      <div class="h-[14px]">
+                        <p class="font-lato text-xs font-normal text-grey2">
+                        at Sunset Road, Kuta, Bali 
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="border-l-[5px] pl-[15px] py-[5.5px] w-full h-[66px] border-blue">
+                  <div class="h-[55px] grid grid-rows-3 gap-y-[5px]">
+                      <div class="h-[17px]">
+                        <p class="font-lato text-sm font-bold text-darkgrey">
+                        Check operation at Giga Factory 1
+                        </p>
+                      </div>
+                      <div class="h-[14px]">
+                        <p class="font-lato text-xs font-normal text-grey2">
+                        18.00-20.00
+                        </p>
+                      </div>
+                      <div class="h-[14px]">
+                        <p class="font-lato text-xs font-normal text-grey2">
+                        at Central Jakarta 
+                        </p>
+                      </div>
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>
