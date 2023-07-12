@@ -5,10 +5,10 @@ export default function handler(req, res) {
       const totalLikes = getRandomNumber(1000, 100000);
       const totalUsers = getRandomNumber(100, 8000);
       const data = [
-        { value: totalRevenue },
-        { value: totalTransactions },
-        { value: totalLikes },
-        { value: totalUsers }
+        { 1: totalRevenue },
+        { 2: totalTransactions },
+        { 3: totalLikes },
+        { 4: totalUsers }
       ];
   
       res.status(200).json(data);
